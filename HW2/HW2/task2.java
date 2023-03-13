@@ -22,6 +22,7 @@ import java.io.InputStreamReader;
 public class task2 {
  
     // построчное считывание файла
+    
     public static void main(String[] args) {
         try {
             
@@ -38,9 +39,10 @@ public class task2 {
             while (line != null) {
                 //System.out.println(line);
                 // считываем остальные строки в цикле
-                String line1 = line.replace('"',' ');
+
+                String line1 = line.replaceAll("\"","");
                 
-                String[] data = line1.split(",|:");
+                String[] data = line1.split(",|:"); // нечколько разделителей через вертикальную черту
                 
 
             System.out.printf("Студент %s получил %s по предмету %s.\n",data[1],data[3],data[5]);
