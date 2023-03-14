@@ -12,28 +12,29 @@ public class task3 {
         Scanner sc = new Scanner(System.in,"Cp866");
         System.out.println("Введите строку : ");
         String text = sc.nextLine();
-        text = text.replaceAll("\\s", "");
-        //System.out.println(text);
-        String text_p = palindrom(text).replaceAll("\\s", "");
+        
+        
+        //String text_p = palindrom(text).replaceAll("\\s", "");
 
-        System.out.println(text_p);
+        //System.out.println(text_p);
 
-        if (text.equalsIgnoreCase(palindrom(text))){
+        if (palindrom(text)){
             System.out.println("Является палиндромом ");
         }
         else{
             System.out.println("Не является палиндромом ");
         }
     }
-    public static String palindrom ( String data) {
-        //System.out.println(data.length());
+    public static Boolean palindrom ( String data) {
+        data = data.replaceAll("\\s", "");
+       
         StringBuilder data1 = new StringBuilder();
         for (int i = data.length()-1; i >= 0; i--) {
-            //System.out.println(i);
+          
             data1.append(data.charAt(i));
-            //System.out.println(data.charAt(i));
+            
         }
-
-        return data1.toString();
+        String data2 = data1.toString();
+        return data.equalsIgnoreCase(data2);
     }
 }
