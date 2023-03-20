@@ -18,52 +18,57 @@ public class kalc {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Введите ваше 1 число : ");
-        num1 = sc.nextDouble();
+        num1 =  Double.parseDouble( sc.nextLine());
+       
         while (true) {
-            //double rez1 = kalculate (num1);
-            kalculate (num1);
-        }
-        
-        
-        
-    }
-    public  static Double kalculate (double num) {
-        //Scanner sc = new Scanner(System.in);
+    
         while (true) {
-            System.out.print("\nВведите действие : ");
+            System.out.print("\nВведите действие +, -, *, /, q-отмена : ");
         
             dey = sc.nextLine();
-            System.out.println(dey);
-            if (dey.equals("q") || dey.equals("+") || dey.equals("-") || dey.equals("*") || dey.equals("/")) break;
+          
+           if (dey.equals("q")) {
+            
+            if (lis.size()>1) {
+                lis.remove(lis.size()-1);
+                num1 = lis.get(lis.size()-1);
+                System.out.println("Буфер вычислений - "+lis);
+            System.out.println("Ваше 1 число : "+num1);
+
+            continue;
+            }
+            else {
+                System.out.println("Буфер вычислений закончился");
+                continue;
+            }
+          
+        }
+            if (dey.equals("+") || dey.equals("-") || dey.equals("*") || dey.equals("/")) {
+                break;
+            }
+            else{
+                System.out.println("Комманда не понята, введте комманду +, -, *, /, q-отмена: "+num1);
+            }
        
         
         }
         
-        if (dey.equals("q")) {
-            if (!lis.isEmpty()) {lis.remove(lis.size()-1);
-            num = lis.get(lis.size()-1);
-            System.out.println("Ваше 1 число : "+num);
-            }
-            else {
-                System.out.println("Список вычислений пуст");
-            }
-            kalculate (num);
-        }
+        
         System.out.print("\nВведите ваше 2 число : ");
-        Double num2 = sc.nextDouble();
-        //sc.close();
+        Double num2 = Double.parseDouble( sc.nextLine());
+        
     
         double rez = 0;
-        if (dey.equals("+")) rez = num + num2;
-        if (dey.equals("-")) rez = num - num2;
-        if (dey.equals("/")) rez = num / num2;
-        if (dey.equals("*")) rez = num * num2;
+        if (dey.equals("+")) rez = num1 + num2;
+        if (dey.equals("-")) rez = num1 - num2;
+        if (dey.equals("/")) rez = num1 / num2;
+        if (dey.equals("*")) rez = num1 * num2;
         
-        System.out.println("\n"+num+" "+dey+" "+num2+" = "+rez);
+        System.out.println("\n"+num1+" "+dey+" "+num2+" = "+rez);
         lis.add(rez);
         num1 = rez;
-        System.out.println(lis);
-        return rez;
-    }    
+       
     }
+}
+}
 

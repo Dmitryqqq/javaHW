@@ -6,13 +6,11 @@
 // dequeue() - возвращает первый элемент из очереди и удаляет его,
 // first() - возвращает первый элемент из очереди, не удаляя.
 
-//import java.util.Collection;
+
 import java.util.LinkedList;
-//import java.util.List;
-//import java.util.Queue;
+
 import java.util.Scanner;
-//import javax.management.Query;
-//import javax.tools.ForwardingJavaFileManager;
+
 
 public class linked_list {
 
@@ -41,16 +39,16 @@ public class linked_list {
             System.out.println(" 5 - Выход из программы");
 
             
-            String v = vvod("\nВведите комманду ");
+            String v = vvod("\nВведите комманду ", sc );
             
             if (v.equals("1")){
                 System.out.println(" ФУНКЦИЯ - reverse() ");
-                //System.out.println(reverse(lis));
+              
                 lis = reverse(lis);
             } 
             else if (v.equals("2")) {
                 System.out.println(" ФУНКЦИЯ - enqueue() ");
-                String obg = vvod("Введите добавляемое значение ");
+                String obg = vvod("Введите добавляемое значение ", sc);
                 lis = enqueue(lis, obg);
             }
             else if (v.equals("3")) {
@@ -72,11 +70,11 @@ public class linked_list {
         }
      
     }
-    public static String vvod (String msg)  {
-        //Scanner sc = new Scanner(System.in);
+    public static String vvod (String msg, Scanner sc)  {
+        
         System.out.print (msg+" " );
         String vv = sc.nextLine();
-        //sc.close();
+        
         return vv;
     }
     // реализация enqueue
@@ -98,8 +96,15 @@ public class linked_list {
     }
     // реализация first()
     public static String first (LinkedList<String> data) {
-        String a = data.get(0);
-        return a;
+        if( !data.isEmpty()){
+            String a = data.get(0);
+            
+            return a;
+            }
+            else{
+                System.out.println("Список пуст ");
+                return null;
+            }       
     }
     // реализация reverse()
     public static LinkedList<String> reverse (LinkedList<String> data) {
