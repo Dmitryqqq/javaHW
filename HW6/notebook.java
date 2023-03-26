@@ -1,12 +1,12 @@
-public class notebook {
+public class Notebook {
     private Integer RAM;
-    private Integer HDD;
+    private Double HDD;
     private String OS;
     private String color;
     private Double CPUfreq ;
     private String model;
 
-    public notebook(Integer RAM,Integer HDD,String OS,Double CPUfreq ) {
+    public Notebook(Integer RAM,Double HDD,String OS,Double CPUfreq ) {
         this.RAM = RAM;
         this.HDD = HDD;
         this.OS = OS;
@@ -29,7 +29,7 @@ public class notebook {
     public String getColor() {
         return color;
     }
-    public Integer getHDD() {
+    public Double getHDD() {
         return HDD;
     }
     public Double getCPUfreq() {
@@ -44,7 +44,7 @@ public class notebook {
     public void setColor(String color) {
         this.color = color;
     }
-    public void setHDD(Integer hDD) {
+    public void setHDD(Double hDD) {
         HDD = hDD;
     }
     public void setOS(String oS) {
@@ -54,8 +54,8 @@ public class notebook {
     public String toString() {
         String rez = new String();
         rez +="NoteBok  model: "+model;
-        rez +="\nCPU: "+CPUfreq+" RAM: "+RAM+" HDD: "+HDD;
-        rez +="OS: "+OS+"color: "+color;
+        rez +=" CPU:"+CPUfreq+"ГГц RAM:"+RAM+"Гб HDD:"+HDD;
+        rez +="Тб OS:"+OS+" color: "+color;
         return rez;
     }
 
